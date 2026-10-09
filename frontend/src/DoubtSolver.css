@@ -1,0 +1,256 @@
+
+.doubt-solver {
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 18px;
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #1e293b);
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.doubt-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.doubt-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: var(--doubt-accent-bg, #ede9fe);
+  color: var(--doubt-accent, #6d28d9);
+  font-size: 25px;
+}
+
+.doubt-header h2 {
+  margin: 0 0 6px;
+  color: var(--text-color, #1e293b);
+  font-size: 22px;
+}
+
+.doubt-header p,
+.doubt-note {
+  margin: 0;
+  color: var(--muted-text, #64748b);
+  line-height: 1.6;
+}
+
+.doubt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doubt-form label {
+  margin-top: 8px;
+  color: var(--text-color, #1e293b);
+  font-weight: 600;
+}
+
+.doubt-form select,
+.doubt-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 10px;
+  background: var(--input-bg, #ffffff);
+  color: var(--text-color, #1e293b);
+  font: inherit;
+}
+
+.doubt-form select option {
+  background: var(--input-bg, #ffffff);
+  color: var(--text-color, #1e293b);
+}
+
+.doubt-form textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.doubt-form textarea::placeholder {
+  color: var(--muted-text, #64748b);
+  opacity: 0.85;
+}
+
+.doubt-form select:focus,
+.doubt-form textarea:focus {
+  outline: 2px solid var(--doubt-accent, #8b5cf6);
+  outline-offset: 2px;
+}
+
+.doubt-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.doubt-form-footer span {
+  color: var(--muted-text, #64748b);
+  font-size: 13px;
+}
+
+.doubt-form-footer button,
+.doubt-followup {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: var(--doubt-button-bg, #6d28d9);
+  color: var(--doubt-button-text, #ffffff);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.doubt-form-footer button:hover:not(:disabled),
+.doubt-followup:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.doubt-form-footer button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.doubt-status,
+.doubt-error,
+.doubt-answer {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+
+.doubt-status {
+  background: var(--subtle-bg, #f1f5f9);
+  color: var(--text-color, #1e293b);
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.doubt-error {
+  background: var(--error-bg, #fef2f2);
+  color: var(--error-text, #b91c1c);
+  border: 1px solid var(--error-border, #fecaca);
+}
+
+.doubt-answer {
+  background: var(--subtle-bg, #f8fafc);
+  color: var(--text-color, #1e293b);
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.doubt-answer h3 {
+  margin: 0 0 12px;
+  color: var(--text-color, #1e293b);
+}
+
+.doubt-answer-text {
+  color: var(--text-color, #1e293b);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.doubt-followup {
+  margin-top: 18px;
+}
+
+.doubt-note {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+/* Dark mode support */
+.dark .doubt-solver,
+.dark-theme .doubt-solver,
+[data-theme="dark"] .doubt-solver {
+  --doubt-accent-bg: #312e81;
+  --doubt-accent: #c4b5fd;
+  --doubt-button-bg: #7c3aed;
+  --doubt-button-text: #ffffff;
+  --error-bg: #451a1a;
+  --error-text: #fecaca;
+  --error-border: #7f1d1d;
+}
+
+@media (max-width: 600px) {
+  .doubt-solver {
+    padding: 16px;
+  }
+
+  .doubt-header h2 {
+    font-size: 19px;
+  }
+
+  .doubt-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .doubt-form-footer button {
+    width: 100%;
+  }
+}
+
+/* Keep the AI Doubt Solver consistent with the dashboard theme */
+.doubt-solver {
+  background: var(--card-bg, transparent);
+  color: var(--text-color, inherit);
+  border-color: var(--border-color, transparent);
+  box-shadow: none;
+}
+
+/* Dark theme */
+.dark .doubt-solver,
+.dark-theme .doubt-solver,
+[data-theme="dark"] .doubt-solver {
+  background: transparent;
+  color: #f1f5f9;
+  border-color: #303642;
+
+  --text-color: #f1f5f9;
+  --muted-text: #aab4c5;
+  --card-bg: #171923;
+  --input-bg: #202431;
+  --subtle-bg: #202431;
+  --border-color: #383f4d;
+
+  --doubt-accent-bg: #312e81;
+  --doubt-accent: #c4b5fd;
+  --doubt-button-bg: #7c3aed;
+  --doubt-button-text: #ffffff;
+
+  --error-bg: #451a1a;
+  --error-text: #fecaca;
+  --error-border: #7f1d1d;
+}
+
+/* Make sure form controls inherit the theme */
+.doubt-solver input,
+.doubt-solver textarea,
+.doubt-solver select {
+  color: var(--text-color, #1e293b);
+  background-color: var(--input-bg, #ffffff);
+  border-color: var(--border-color, #cbd5e1);
+}
+
+.doubt-solver .doubt-answer,
+.doubt-solver .doubt-status {
+  background: var(--subtle-bg, #f8fafc);
+  color: var(--text-color, #1e293b);
+}
